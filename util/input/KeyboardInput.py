@@ -1,34 +1,34 @@
 import pygame as pg
 
-keysDown = set()
-keysUp = set()
-keysHeld = set()
+keys_down = set()
+keys_up = set()
+keys_held = set()
 
 def read():
-    global keysDown, keysUp, keysHeld
-    keysDown.clear()
-    keysUp.clear()
+    global keys_down, keys_up, keys_held
+    keys_down.clear()
+    keys_up.clear()
 
     for event in pg.event.get():
         match (event.type):
             case pg.QUIT:
                 pg.quit()
             case pg.KEYDOWN:
-                keysDown.add(event.key)
+                keys_down.add(event.key)
             case pg.KEYUP:
-                keysUp.add(event.key)
+                keys_up.add(event.key)
     pressed = pg.key.get_pressed()
-    keysHeld.clear()
+    keys_held.clear()
     for keycode in range(len(pressed)):
         if (pressed[keycode]):
-            keysHeld.add(keycode)
+            keys_held.add(keycode)
 def update():
     return {
-        "down": keysDown.copy(),
-        "up": keysUp.copy(),
-        "held": keysHeld.copy()
+        "down": keys_down.copy(),
+        "up": keys_up.copy(),
+        "held": keys_held.copy()
     }
 def clear():
-    keysDown.clear()
-    keysUp.clear()
-    keysHeld.clear()
+    keys_down.clear()
+    keys_up.clear()
+    keys_held.clear()

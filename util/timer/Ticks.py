@@ -5,7 +5,7 @@ clock = pg.time.Clock()
 def ticks(ticks):
     global clock
     return clock.tick(ticks)
-def getFPS():
+def get_FPS():
     global clock
     return clock.get_fps()
 def wait(seconds):

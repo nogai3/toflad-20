@@ -1,7 +1,7 @@
 import pygame as pg
 
-def playMusic(path):
+def play_music(path):
     pg.mixer.music.load(path)
     pg.mixer.music.play()
-def playSound(path):
+def play_sound(path):
     pg.mixer.sound(path).play()
